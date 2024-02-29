@@ -12,7 +12,7 @@
     </button>
 
     @if (showContent()) {
-      <p class="font-bold">Hola mundo!</p>
+      <p class="font-bold">Hello world!</p>
     } @else {
       <p>Empty</p>
     }
@@ -36,8 +36,20 @@
   <!--  ngFor @for -->
   <div class="bg-white rounded shadow p-10">
     <ul>
-      @for (framework of frameworks(); track $index) {
-        <li class="">{{ framework }}</li>
+      @for (
+        framework of frameworks();
+        track frameworks;
+        let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count
+      ) {
+        <li
+          [class]="{
+            'bg-red-100': even && !first && !last,
+            'bg-green-100': odd && !first && !last,
+            'bg-blue-100': first || last
+          }"
+        >
+          {{ i + 1 }}/{{ count }} - {{ framework }}
+        </li>
       }
     </ul>
   </div>

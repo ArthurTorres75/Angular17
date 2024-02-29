@@ -12,7 +12,13 @@ type Grade = 'A' | 'B' | 'F';
 export default class ControlFlowComponent {
   public showContent = signal(false);
   public grade = signal<Grade>('A');
-  public frameworks = signal(['Angular', 'Vue', 'Svelte', 'NextJs']);
+  public frameworks = signal([
+    'Angular',
+    'Vue.js',
+    'Svelte',
+    'NextJs',
+    'Django',
+  ]);
   public frameworks2 = signal([]);
 
   public toggleContent() {
